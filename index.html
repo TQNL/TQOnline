@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="minecraft addict" />
+  <meta name="description" content="TQOnline | Minecraft content and suggestions" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>TQNL</title>
+  <title>TQOnline</title>
 
-  <!-- Import DM Sans font to resemble Linktree’s font style -->
+  <!-- Import Google Font DM Sans (or your preferred font) -->
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
 
   <style>
-    /* Basic reset and body styling */
+    /* Basic resets */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -23,181 +23,418 @@
 
     body {
       font-family: "DM Sans", sans-serif;
-      background: #E4E9ED; /* Light grayish background */
-      color: #0027D0;      /* Deep blue text color to match your Linktree */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      background: #f7f9fc; /* Light background color */
+      color: #252525;      /* Darker text color */
       min-height: 100vh;
-      padding: 2rem;
     }
 
-    /* Container for your profile info and links */
-    .container {
-      max-width: 600px;
-      width: 100%;
+    /* Hero Section (shorter) */
+    .hero {
+      background: linear-gradient(135deg, #00b8d4, #0066d6);
+      color: #ffffff;
+      padding: 2rem 1rem;  /* Reduced from 4rem for a shorter banner */
       text-align: center;
-    }
-
-    /* Profile image styling */
-    .profile-pic {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-
-    /* Headline (Your name) */
-    h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Small subheadline (Your description) */
-    p.description {
-      font-size: 1rem;
-      font-weight: 500;
       margin-bottom: 2rem;
     }
 
-    /* Link button container */
-    .links {
+    .hero h1 {
+      font-size: 2rem; /* Slightly smaller if you want to reduce space */
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      font-weight: 400;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Profile / Intro area */
+    .intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .profile-pic {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      display: block;
+      border: 3px solid #00b8d4;
+    }
+    .intro h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #0066d6;
+    }
+    .intro p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.4;
+      max-width: 600px;
+      margin: 0.5rem auto;
+      padding: 0 1rem;
+      white-space: pre-line; /* Allows your blank line break to show */
+    }
+
+    /* Main container to hold the link groups */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    /* Group headings */
+    .group-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #0066d6;
+      border-left: 5px solid #00b8d4;
+      padding-left: 0.75rem;
+    }
+
+    /* The grid layout for content “cards” */
+    .grid {
+      display: grid;
+      gap: 1rem;
+      /* Responsive columns: 1 col on small screens, up to 3 on larger screens */
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      margin-bottom: 2rem;
+    }
+
+    /* Each content “card”/box */
+    .link-box,
+    .pack-box {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 2px solid #ececec;
       display: flex;
       flex-direction: column;
-      gap: 1rem; /* Space between each button */
+      justify-content: space-between;
     }
 
-    /* Link buttons to mimic the Linktree style */
-    .link-button {
-      display: inline-block;
+    .link-box:hover,
+    .pack-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      border-color: #00b8d4;
+    }
+
+    .link-box h3,
+    .pack-box h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #111;
+    }
+
+    .link-box a {
       text-decoration: none;
-      background: #fff;         /* White background */
-      color: #0027D0;          /* Deep blue text */
+      color: #0066d6;
       font-weight: 500;
-      border: 2px solid #fff;  /* White border by default */
-      border-radius: 30px;     /* Large, pill-shaped corner radius */
-      padding: 0.75rem 1.5rem;
-      transition: all 0.25s ease;
+      word-wrap: break-word;
     }
 
-    /* Hover effect that inverts the style */
-    .link-button:hover {
-      background: transparent; 
-      color: #fff;
-      border-color: #fff;
+    /* Data Pack box specifics */
+    .pack-box p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+      color: #444;
     }
 
-    /* Optional: Make them a bit bigger on hover */
-    .link-button:hover {
-      transform: scale(1.03);
+    /* Optional icon for each data pack (square) */
+    .pack-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
     }
 
-    /* A little margin at the bottom for spacing */
+    .pack-box .pack-title {
+      color: #0066d6;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    .pack-box .pack-title:hover {
+      color: #004da8;
+    }
+
+    /* Footer styling */
     footer {
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: #555;
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #777;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Your profile image -->
+
+  <!-- Hero Section (Shortened) -->
+  <header class="hero">
+    <h1>TQOnline</h1>
+    <p>
+      Welcome to TQOnline — your one-stop destination for Minecraft suggestions, 
+      custom data packs, and all my other creations!
+    </p>
+  </header>
+
+  <!-- Intro Section with Profile Pic -->
+  <section class="intro">
     <img 
-      class="profile-pic" 
-      src="icons/pfp.png" 
-      alt="Profile Picture"
+      src="icons/pfp.png"  <!-- Updated for shorter hero -->
+      alt="TQ's Profile Picture"
+      class="profile-pic"
     />
+    <h2>Hello, I’m TQ!</h2>
+    <p>
+I’m a passionate Minecraft player, data pack maker, redstoner, technical minecrafter, and mod enthusiast.
 
-    <!-- Profile title -->
-    <h1>TQNL</h1>
+Browse my latest ideas, projects, and social channels below!
+    </p>
+  </section>
 
-    <!-- Description/tagline -->
-    <p class="description">minecraft addict</p>
+  <!-- Main Container -->
+  <main class="container">
+    <!-- Group 1: My Stuff -->
+    <h3 class="group-title">My Stuff</h3>
+    <div class="grid">
+      <!-- Modrinth -->
+      <div class="link-box">
+        <h3>Modrinth</h3>
+        <a href="https://modrinth.com/user/TQNL" target="_blank">
+          Home to my Minecraft software (notably data packs!)
+        </a>
+      </div>
 
-    <!-- The list of links (buttons) -->
-    <div class="links">
-      <!-- Example: from your Linktree, each link is below -->
-      <a 
-        href="https://feedback.minecraft.net/hc/en-us/community/posts/29147504605965-Initialise-macro-function-with-scoreboard" 
-        class="link-button" 
-        target="_blank"
-      >
-        Vote for my fav MC suggestion
-      </a>
+      <!-- GitHub -->
+      <div class="link-box">
+        <h3>GitHub</h3>
+        <a href="https://github.com/tqnl" target="_blank">
+          Check out my GitHub for bonus content
+        </a>
+      </div>
 
-      <a 
-        href="https://www.youtube.com/@TQNL" 
-        class="link-button" 
-        target="_blank"
-      >
-        YouTube
-      </a>
+      <!-- YouTube -->
+      <div class="link-box">
+        <h3>YouTube</h3>
+        <a href="https://www.youtube.com/@TQNL" target="_blank">
+          Watch my Minecraft videos
+        </a>
+      </div>
 
-      <a 
-        href="https://modrinth.com/user/TQNL" 
-        class="link-button" 
-        target="_blank"
-      >
-        TQNL - Modrinth
-      </a>
-
-      <a 
-        href="https://github.com/tqnl" 
-        class="link-button" 
-        target="_blank"
-      >
-        Check out my GitHub for bonus content
-      </a>
-
-      <a 
-        href="https://feedback.minecraft.net/hc/en-us/community/posts/29142656988941-Prevent-Mob-Friendly-Fire-in-Trial-Chambers"
-        class="link-button"
-        target="_blank"
-      >
-        Prevent Mob Friendly-Fire in Trial Chambers
-      </a>
-
-      <a 
-        href="https://feedback.minecraft.net/hc/en-us/community/posts/24392326257421-Option-to-enable-normal-player-movement-in-tick-rate"
-        class="link-button"
-        target="_blank"
-      >
-        Option to enable normal player movement in /tick rate
-      </a>
-
-      <a
-        href="https://feedback.minecraft.net/hc/en-us/community/posts/32958909171085-Add-entity-type-tag-for-chest-boats"
-        class="link-button"
-        target="_blank"
-      >
-        Add entity type tag for chest boats
-      </a>
-
-      <a 
-        href="https://feedback.minecraft.net/hc/en-us/community/posts/33398416858253-Add-a-Hitbox-Intersection-Check-to-Minecraft-Commands"
-        class="link-button"
-        target="_blank"
-      >
-        Add a Hitbox Intersection Check to Minecraft Commands
-      </a>
-
-      <a 
-        href="https://feedback.minecraft.net/hc/en-us/community/posts/33398478744845-Generalize-the-minecraft-bee_nest_destroyed-advancement-definition"
-        class="link-button"
-        target="_blank"
-      >
-        Generalize the bee_nest_destroyed advancement definition
-      </a>
+      <!-- Reddit -->
+      <div class="link-box">
+        <h3>Reddit</h3>
+        <a href="https://www.reddit.com/user/thijquint/" target="_blank">
+          Join my discussions on Reddit
+        </a>
+      </div>
     </div>
-  </div>
 
+    <!-- Short Plea for Voting on Suggestions -->
+    <div style="margin-bottom: 2rem;">
+      <p style="font-size:1rem; line-height:1.5; text-align:center; max-width:700px; margin:0 auto;">
+        <strong>Love Minecraft as much as I do?</strong><br>
+        Voting on my official <em>Minecraft Feedback</em> suggestions only takes a short time, 
+        but it really helps get my ideas noticed. Thanks in advance for your support!
+      </p>
+    </div>
+
+    <!-- Group 2: Minecraft Feedback Suggestions -->
+    <h3 class="group-title">Minecraft Feedback Suggestions</h3>
+    <div class="grid">
+      <div class="link-box">
+        <h3>Macro Function + Scoreboard</h3>
+        <a 
+          href="https://feedback.minecraft.net/hc/en-us/community/posts/29147504605965-Initialise-macro-function-with-scoreboard"
+          target="_blank"
+        >
+          Vote for my favorite MC suggestion
+        </a>
+      </div>
+
+      <div class="link-box">
+        <h3>Prevent Mob Friendly-Fire</h3>
+        <a 
+          href="https://feedback.minecraft.net/hc/en-us/community/posts/29142656988941-Prevent-Mob-Friendly-Fire-in-Trial-Chambers"
+          target="_blank"
+        >
+          Keep those mobs from harming each other
+        </a>
+      </div>
+
+      <div class="link-box">
+        <h3>Normal Player Movement in /tick rate</h3>
+        <a 
+          href="https://feedback.minecraft.net/hc/en-us/community/posts/24392326257421-Option-to-enable-normal-player-movement-in-tick-rate"
+          target="_blank"
+        >
+          Option to enable standard movement
+        </a>
+      </div>
+
+      <div class="link-box">
+        <h3>Chest Boat Tag</h3>
+        <a 
+          href="https://feedback.minecraft.net/hc/en-us/community/posts/32958909171085-Add-entity-type-tag-for-chest-boats"
+          target="_blank"
+        >
+          Add an entity type tag for chest boats
+        </a>
+      </div>
+
+      <div class="link-box">
+        <h3>Hitbox Intersection Check</h3>
+        <a 
+          href="https://feedback.minecraft.net/hc/en-us/community/posts/33398416858253-Add-a-Hitbox-Intersection-Check-to-Minecraft-Commands"
+          target="_blank"
+        >
+          Implement hitbox collision checks
+        </a>
+      </div>
+
+      <div class="link-box">
+        <h3>Bee Nest Destroyed Advancement</h3>
+        <a 
+          href="https://feedback.minecraft.net/hc/en-us/community/posts/33398478744845-Generalize-the-minecraft-bee_nest_destroyed-advancement-definition"
+          target="_blank"
+        >
+          Generalize the bee_nest_destroyed trigger
+        </a>
+      </div>
+    </div>
+
+    <!-- Featured Data Packs -->
+    <h3 class="group-title">Featured Data Packs</h3>
+    <div class="grid">
+      <!-- Example pack with optional icon & link. Update src/href as needed. -->
+      <div class="pack-box">
+        <!-- Optional icon (square) -->
+        <img 
+          src="icons/pack1.png" 
+          alt="Armor Trim Abilities icon" 
+          class="pack-icon"
+        />
+        <!-- Link in the title (optional) -->
+        <h3>
+          <a href="https://modrinth.com/datapack/armor-trim-abilities" target="_blank" class="pack-title">
+            Armor Trim Abilities
+          </a>
+        </h3>
+        <p>
+          Adds a base power and full set power to every Armor Trim. 
+          Each power tackles a different gameplay mechanic.
+        </p>
+      </div>
+
+      <!-- TQs Full Bright -->
+      <div class="pack-box">
+        <img 
+          src="icons/pack2.png"
+          alt="TQs Full Bright icon"
+          class="pack-icon"
+        />
+        <h3>
+          <a href="https://modrinth.com/datapack/tqs-full-bright" target="_blank" class="pack-title">
+            TQs Full Bright
+          </a>
+        </h3>
+        <p>
+          Full Bright with one command: <code>/trigger night_vision_command</code>
+        </p>
+      </div>
+
+      <!-- No Creeper & Ghast Explosions -->
+      <div class="pack-box">
+        <img 
+          src="icons/pack3.png"
+          alt="No Creeper & Ghast Explosions icon"
+          class="pack-icon"
+        />
+        <h3>
+          <a href="https://modrinth.com/datapack/no-creeper-ghast-explosions" target="_blank" class="pack-title">
+            No Creeper &amp; Ghast Explosions
+          </a>
+        </h3>
+        <p>
+          Prevents Creepers and Ghasts exploding blocks, but they still do damage. 
+          Very lag friendly and optimised.
+        </p>
+      </div>
+
+      <!-- TQs Chairs Data Pack -->
+      <div class="pack-box">
+        <img 
+          src="icons/pack4.png"
+          alt="TQs Chairs Data Pack icon"
+          class="pack-icon"
+        />
+        <h3>
+          <a href="https://modrinth.com/datapack/tqs-chairs-data-pack" target="_blank" class="pack-title">
+            TQs Chairs Data Pack
+          </a>
+        </h3>
+        <p>
+          Looking straight down on a slab or stair converts it into a chair. 
+          If you go away from it, it does lose its functionality, for lag maintenance. 
+          If you want to make the chair permanent, put a sign on the side. 
+          Right click to sit in it.
+        </p>
+      </div>
+
+      <!-- Enhanced Allays -->
+      <div class="pack-box">
+        <img 
+          src="icons/pack5.png"
+          alt="Enhanced Allays icon"
+          class="pack-icon"
+        />
+        <h3>
+          <a href="https://modrinth.com/datapack/enhanced-allays" target="_blank" class="pack-title">
+            Enhanced Allays
+          </a>
+        </h3>
+        <p>
+          This data pack makes allays teleport to the player or to their noteblock, 
+          much like how dogs and cats teleport. It also adds the option to 
+          make allays immortal.
+        </p>
+      </div>
+
+      <!-- Shop 'n Trade -->
+      <div class="pack-box">
+        <img 
+          src="icons/pack6.png"
+          alt="Shop 'n Trade icon"
+          class="pack-icon"
+        />
+        <h3>
+          <a href="https://modrinth.com/datapack/shop-n-trade" target="_blank" class="pack-title">
+            Shop 'n Trade
+          </a>
+        </h3>
+        <p>
+          Setup easy container shops people can trade with. Shop keeps can easily 
+          manage shops and collect profits.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
   <footer>
-    <!-- Simple footer text -->
-    © 2025 TQNL
+    © 2025 TQOnline | All rights reserved.
   </footer>
 </body>
 </html>
