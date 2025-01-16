@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8" />
   <meta name="description" content="TQOnline | Minecraft content and suggestions" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>TQOnline</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <!-- Google Font: DM Sans -->
   <link
@@ -35,7 +37,7 @@
       color: #ffffff;
       padding: 2rem 1rem; /* Shorter banner */
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
     .hero h1 {
       font-size: 2rem; /* Slightly smaller for a shorter banner */
@@ -50,10 +52,67 @@
       line-height: 1.6;
     }
 
-    /* Intro / Profile section */
-    .intro {
-      text-align: center;
+    /* Intro Container with My Stuff boxes on either side */
+    .intro-container {
+      display: flex;
+      flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+      justify-content: space-evenly;
+      align-items: flex-start;
       margin-bottom: 2rem;
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+      gap: 1rem;
+    }
+
+    /* My Stuff Boxes on the sides */
+    .my-stuff-box {
+      flex: 1 1 200px; /* box can shrink/grow, min size ~200px */
+      max-width: 280px;
+      background-color: #e6f7ff; /* Slightly colored background */
+      border-radius: 8px;
+      padding: 1rem;
+      border: 2px solid #d9f0f5; /* subtle border */
+    }
+    .my-stuff-box h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      color: #0066d6;
+    }
+    /* Container for each link + description */
+    .stuff-item {
+      margin-bottom: 1rem;
+    }
+    .stuff-link {
+      display: block;
+      text-decoration: none;
+      background: #fff;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      color: #0066d6;
+      font-weight: 500;
+      transition: background-color 0.2s, transform 0.2s;
+      margin-bottom: 0.25rem;
+    }
+    .stuff-link:hover {
+      background-color: #f0f7fb;
+      transform: translateY(-2px);
+    }
+    .stuff-desc {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    /* Intro Section itself */
+    .intro {
+      flex: 1 1 300px; /* so it can grow/shrink around 300px min */
+      text-align: center;
+      margin-bottom: 0; /* We'll rely on parent's spacing */
     }
     .profile-pic {
       width: 110px;
@@ -77,10 +136,10 @@
       max-width: 600px;
       margin: 0.5rem auto;
       padding: 0 1rem;
-      white-space: pre-line; /* Preserves the blank line you inserted */
+      white-space: pre-line; /* Preserves any blank lines */
     }
 
-    /* Container for main content */
+    /* Container for the rest of the page content */
     .container {
       max-width: 1200px;
       margin: 0 auto 3rem;
@@ -97,7 +156,7 @@
       padding-left: 0.75rem;
     }
 
-    /* Grid layout for link boxes / data pack boxes */
+    /* Grid layout for suggestions / data pack cards */
     .grid {
       display: grid;
       gap: 1rem;
@@ -105,7 +164,7 @@
       margin-bottom: 2rem;
     }
 
-    /* Basic "card" style for link boxes / data pack boxes */
+    /* Card styling for link-box or pack-box */
     .link-box,
     .pack-box {
       background: #ffffff;
@@ -135,8 +194,6 @@
       color: #0066d6;
       font-weight: 500;
     }
-
-    /* Data Pack box specifics */
     .pack-box p {
       font-size: 0.9rem;
       line-height: 1.4;
@@ -179,53 +236,92 @@
     </p>
   </header>
 
-  <!-- Intro Section with Profile Pic -->
-  <section class="intro">
-    <img
-      src="icons/pfp.png"
-      alt="TQ's Profile Picture"
-      class="profile-pic"
-    />
-    <h2>Hello, I’m TQ!</h2>
-    <p>
-I’m a passionate Minecraft player, data pack maker, redstoner, technical minecrafter, and mod enthusiast.
-
-Browse my latest ideas, projects, and social channels below!
-    </p>
-  </section>
-
-  <!-- Main Container -->
-  <main class="container">
-    <!-- My Stuff -->
-    <h3 class="group-title">My Stuff</h3>
-    <div class="grid">
-      <div class="link-box">
-        <h3>Modrinth</h3>
-        <a href="https://modrinth.com/user/TQNL" target="_blank">
+  <!-- Intro Container for My Stuff boxes + Intro in the center -->
+  <div class="intro-container">
+    <!-- Left My Stuff box: Download Pages -->
+    <div class="my-stuff-box">
+      <h3>Download Pages</h3>
+      <!-- Modrinth -->
+      <div class="stuff-item">
+        <a 
+          href="https://modrinth.com/user/TQNL" 
+          target="_blank"
+          class="stuff-link"
+        >
+          Modrinth
+        </a>
+        <div class="stuff-desc">
           Home to my Minecraft software (notably data packs!)
-        </a>
+        </div>
       </div>
-      <div class="link-box">
-        <h3>GitHub</h3>
-        <a href="https://github.com/tqnl" target="_blank">
+      <!-- GitHub -->
+      <div class="stuff-item">
+        <a 
+          href="https://github.com/tqnl" 
+          target="_blank"
+          class="stuff-link"
+        >
+          GitHub
+        </a>
+        <div class="stuff-desc">
           Check out my GitHub for bonus content
-        </a>
-      </div>
-      <div class="link-box">
-        <h3>YouTube</h3>
-        <a href="https://www.youtube.com/@TQNL" target="_blank">
-          Watch my Minecraft videos
-        </a>
-      </div>
-      <div class="link-box">
-        <h3>Reddit</h3>
-        <a href="https://www.reddit.com/user/thijquint/" target="_blank">
-          Join my discussions on Reddit
-        </a>
+        </div>
       </div>
     </div>
 
-    <!-- Short Plea for Voting -->
+    <!-- Intro Section in the middle -->
+    <section class="intro">
+      <img
+        src="icons/pfp.png"
+        alt="TQ's Profile Picture"
+        class="profile-pic"
+      />
+      <h2>Hello, I’m TQ!</h2>
+      <p>
+I’m a passionate Minecraft player, data pack maker, redstoner, technical minecrafter, and mod enthusiast.
+
+Browse my latest ideas, projects, and social channels below!
+      </p>
+    </section>
+
+    <!-- Right My Stuff box: Social Pages -->
+    <div class="my-stuff-box">
+      <h3>Social Pages</h3>
+      <!-- YouTube -->
+      <div class="stuff-item">
+        <a 
+          href="https://www.youtube.com/@TQNL" 
+          target="_blank"
+          class="stuff-link"
+        >
+          YouTube
+        </a>
+        <div class="stuff-desc">
+          Watch my Minecraft videos
+        </div>
+      </div>
+      <!-- Reddit -->
+      <div class="stuff-item">
+        <a 
+          href="https://www.reddit.com/user/thijquint/" 
+          target="_blank"
+          class="stuff-link"
+        >
+          Reddit
+        </a>
+        <div class="stuff-desc">
+          Join my discussions on Reddit
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container for the rest of the content -->
+  <main class="container">
+    <!-- Minecraft Feedback Suggestions -->
+    <h3 class="group-title">Minecraft Feedback Suggestions</h3>
+
+    <!-- Plea directly under the heading -->
     <div style="margin-bottom: 2rem;">
       <p style="font-size:1rem; line-height:1.5; text-align:center; max-width:700px; margin:0 auto;">
         <strong>Love Minecraft as much as I do?</strong><br>
@@ -234,8 +330,6 @@ Browse my latest ideas, projects, and social channels below!
       </p>
     </div>
 
-    <!-- Minecraft Feedback Suggestions -->
-    <h3 class="group-title">Minecraft Feedback Suggestions</h3>
     <div class="grid">
       <div class="link-box">
         <h3>Macro Function + Scoreboard</h3>
