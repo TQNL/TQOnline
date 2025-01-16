@@ -1,76 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Home Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="description" content="minecraft addict" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
+  <title>TQNL</title>
 
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 0.5rem 0;
-        }
+  <!-- Import DM Sans font to resemble Linktree’s font style -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-            padding: 0.5rem 1rem;
-        }
+  <style>
+    /* Basic reset and body styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        nav a:hover {
-            background-color: #007BFF;
-            border-radius: 5px;
-        }
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: #E4E9ED; /* Light grayish background */
+      color: #0027D0;      /* Deep blue text color to match your Linktree */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 2rem;
+    }
 
-        main {
-            padding: 2rem;
-            text-align: center;
-        }
+    /* Container for your profile info and links */
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    /* Profile image styling */
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    /* Headline (Your name) */
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Small subheadline (Your description) */
+    p.description {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    /* Link button container */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; /* Space between each button */
+    }
+
+    /* Link buttons to mimic the Linktree style */
+    .link-button {
+      display: inline-block;
+      text-decoration: none;
+      background: #fff;         /* White background */
+      color: #0027D0;          /* Deep blue text */
+      font-weight: 500;
+      border: 2px solid #fff;  /* White border by default */
+      border-radius: 30px;     /* Large, pill-shaped corner radius */
+      padding: 0.75rem 1.5rem;
+      transition: all 0.25s ease;
+    }
+
+    /* Hover effect that inverts the style */
+    .link-button:hover {
+      background: transparent; 
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* Optional: Make them a bit bigger on hover */
+    .link-button:hover {
+      transform: scale(1.03);
+    }
+
+    /* A little margin at the bottom for spacing */
+    footer {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to TQOnline</h1>
-    </header>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    <main>
-        <h2>About This Website</h2>
-        <p>This is a test home page for TQOnline. Feel free to explore and check out the links above.</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 TQOnline. All Rights Reserved.</p>
-    </footer>
+  <div class="container">
+    <!-- Your profile image -->
+    <img 
+      class="profile-pic" 
+      src="YOUR_IMAGE_URL_HERE" 
+      alt="Profile Picture"
+    />
+
+    <!-- Profile title -->
+    <h1>TQNL</h1>
+
+    <!-- Description/tagline -->
+    <p class="description">minecraft addict</p>
+
+    <!-- The list of links (buttons) -->
+    <div class="links">
+      <!-- Example: from your Linktree, each link is below -->
+      <a 
+        href="https://feedback.minecraft.net/hc/en-us/community/posts/29147504605965-Initialise-macro-function-with-scoreboard" 
+        class="link-button" 
+        target="_blank"
+      >
+        Vote for my fav MC suggestion
+      </a>
+
+      <a 
+        href="https://www.youtube.com/@TQNL" 
+        class="link-button" 
+        target="_blank"
+      >
+        YouTube
+      </a>
+
+      <a 
+        href="https://modrinth.com/user/TQNL" 
+        class="link-button" 
+        target="_blank"
+      >
+        TQNL - Modrinth
+      </a>
+
+      <a 
+        href="https://github.com/tqnl" 
+        class="link-button" 
+        target="_blank"
+      >
+        Check out my GitHub for bonus content
+      </a>
+
+      <a 
+        href="https://feedback.minecraft.net/hc/en-us/community/posts/29142656988941-Prevent-Mob-Friendly-Fire-in-Trial-Chambers"
+        class="link-button"
+        target="_blank"
+      >
+        Prevent Mob Friendly-Fire in Trial Chambers
+      </a>
+
+      <a 
+        href="https://feedback.minecraft.net/hc/en-us/community/posts/24392326257421-Option-to-enable-normal-player-movement-in-tick-rate"
+        class="link-button"
+        target="_blank"
+      >
+        Option to enable normal player movement in /tick rate
+      </a>
+
+      <a
+        href="https://feedback.minecraft.net/hc/en-us/community/posts/32958909171085-Add-entity-type-tag-for-chest-boats"
+        class="link-button"
+        target="_blank"
+      >
+        Add entity type tag for chest boats
+      </a>
+
+      <a 
+        href="https://feedback.minecraft.net/hc/en-us/community/posts/33398416858253-Add-a-Hitbox-Intersection-Check-to-Minecraft-Commands"
+        class="link-button"
+        target="_blank"
+      >
+        Add a Hitbox Intersection Check to Minecraft Commands
+      </a>
+
+      <a 
+        href="https://feedback.minecraft.net/hc/en-us/community/posts/33398478744845-Generalize-the-minecraft-bee_nest_destroyed-advancement-definition"
+        class="link-button"
+        target="_blank"
+      >
+        Generalize the bee_nest_destroyed advancement definition
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <!-- Simple footer text -->
+    © 2025 TQNL
+  </footer>
 </body>
 </html>
